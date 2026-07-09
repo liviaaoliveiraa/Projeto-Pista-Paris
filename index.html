@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pista Paris | ELJ Locações</title>
+    <!-- ÍCONE DA ABA DO NAVEGADOR (FAVICON) -->
+   <link rel="icon" type="img/png" href="assets/img/torre.png">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para o arquivo CSS externo dentro da pasta assets/css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5519999223107?text=Olá Carlos! Sou parceiro do setor de eventos e gostaria de saber sobre as condições especiais da Pista Paris." class="whatsapp-float" target="_blank" aria-label="Contacto pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="logo">ELJ Locações</div>
+        
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-overlay" id="nav-overlay">
+            <ul>
+                <li><a href="#inicio" onclick="toggleMenu()">Início</a></li>
+                <li><a href="#pista" onclick="toggleMenu()">A Pista</a></li>
+                <li><a href="#experiencia" onclick="toggleMenu()">Experiência</a></li>
+                <li><a href="#duvidas" onclick="toggleMenu()">Dúvidas</a></li>
+                <li><a href="#parcerias" onclick="toggleMenu()">Parcerias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SLIDER HERO DINÂMICO -->
+    <section id="inicio" class="hero-slider hero">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1543305113-82b47ebc61d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="hero-content">
+                <span class="pre-titulo">locação da</span>
+                <h1>Pista Paris</h1>
+                <p>Você faz a festa. A gente traz a pista.</p>
+                <a href="#pista" class="btn">Conheça a Pista</a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="hero-content">
+                <span class="pre-titulo">O Melhor de Campinas</span>
+                <h1>Sofisticação Acessível</h1>
+                <p>O melhor preço por m² de pista estrelada da região. Luxo que cabe no seu orçamento.</p>
+                <a href="https://wa.me/5519999223107?text=Olá Carlos! Gostaria de garantir o meu preço para a locação da Pista Paris." class="btn">Garantir Meu Preço</a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/28123410/pexels-photo-28123410.jpeg?_gl=1*4v3xul*_ga*MTk0MjkzNjA3MS4xNzUzODA2OTcw*_ga_8JE65Q40S6*czE3ODM1MzU1MTIkbzIkZzEkdDE3ODM1MzU1ODUkajUxJGwwJGgw');">
+            <div class="hero-content">
+                <span class="pre-titulo">Memórias para a Vida</span>
+                <h1>Fotos de Cinema</h1>
+                <p>O cenário que transforma cada foto do seu evento numa obra de arte impecável.</p>
+                <a href="#experiencia" class="btn">Ver Diferenciais</a>
+            </div>
+        </div>
+
+        <div class="slider-dots">
+            <div class="dot active" onclick="currentSlide(0)"></div>
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO SOBRE A PISTA -->
+    <section id="pista" class="about-pista section-padding">
+        <div class="about-content reveal">
+            <div class="about-text">
+                <h2>Conheça a</h2>
+                <span class="titulo-pista-decorado">Pista Paris</span>
+                <p>
+                    A pista Paris é o elemento ideal para quem deseja surpreender e criar uma atmosfera inesquecível. Com sua iluminação integrada de alto brilho e efeitos dinâmicos, ela envolve o ambiente com sofisticação, transformando o espaço da dança no grande destaque visual da sua celebração.
+                </p>
+                <p>
+                    Seja para casamentos, festas de debutantes ou eventos corporativos, ela se adapta perfeitamente ao estilo do seu projeto. Além do impacto estético moderno, ela valoriza cada registro em foto e vídeo, garantindo memórias dignas de cinema com elegância única.
+                </p>
+                <div class="specs-box">
+                    <p><strong>Configuração Premium:</strong> Dimensões ideais de 4x4m (16m²) compostas por 16 placas ultraresistentes de alta tecnologia, equipadas com acabamento em vidro espelhado de segurança e sistema de encaixe perfeito que elimina qualquer desnível no piso.</p>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <div class="media-item">
+                    <img src="img/pista-paris-imagem-1.jpg" alt="[Imagem da Pista Paris 1]" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80'">
+                </div>
+                <div class="media-item">
+                    <img src="img/pista-paris-imagem-2.jpg" alt="[Imagem da Pista Paris 2]" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80'">
+                </div>
+                <div class="media-item">
+                    <img src="img/pista-paris-imagem-3.jpg" alt="[Imagem da Pista Paris 3]" onerror="this.src='https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80'">
+                </div>
+                <div class="media-item">
+                    <video controls muted autoplay loop playsinline>
+                        <source src="img/video da pista.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <!-- BOTÃO DO INSTAGRAM ADICIONADO -->
+                <div class="instagram-container">
+                    <a href="https://www.instagram.com/elj_locacoes" target="_blank" class="btn btn-instagram">
+                        <i class="fab fa-instagram"></i> Ver Mais no Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO EXPERIÊNCIA EXCLUSIVA -->
+    <section id="experiencia" class="section-padding">
+        <h2 class="titulo-seccao">Experiência <span>Exclusiva</span></h2>
+        <div class="features">
+            <div class="feature-card reveal">
+                <i class="fas fa-truck-loading"></i>
+                <h3>Logística Completa</h3>
+                <p>Transporte, montagem técnica e desmontagem inclusas. Sem preocupações.</p>
+            </div>
+            <div class="feature-card reveal">
+                <i class="fas fa-star"></i>
+                <h3>Efeito Estrelado</h3>
+                <p>Milhares de pontos de luz LED que criam uma atmosfera de sonho.</p>
+            </div>
+            <div class="feature-card reveal">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Segurança e Brilho</h3>
+                <p>Acabamento em vidro temperado de alta resistência e reflexo impecável.</p>
+            </div>
+            <div class="feature-card reveal">
+                <i class="fas fa-palette"></i>
+                <h3>Bordas de LED Ativas</h3>
+                <p>A borda de cada placa conta com tecnologia LED independente, permitindo alterar e personalizar totalmente as cores e os movimentos rítmicos dos efeitos conforme a energia da pista.</p>
+            </div>
+            <div class="feature-card reveal">
+                <i class="fas fa-sliders-h"></i>
+                <h3>Controle de Efeitos</h3>
+                <p>Gerenciamento total do painel de iluminação, possibilitando alternar de forma prática entre o modo sutil 100% estrelado (perfeito para valsas) e o modo dinâmico vibrante (ideal para a balada).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DÚVIDAS -->
+    <section id="duvidas" class="section-padding">
+        <h2 class="titulo-seccao">Dúvidas <span>Frequentes</span></h2>
+        <div class="faq-container">
+            <div class="faq-item reveal">
+                <h4><i class="fas fa-map-marker-alt"></i> Em qual região vocês trabalham?</h4>
+                <p>Atendemos com total agilidade <strong>Campinas e toda a região metropolitana</strong>. Vale destacar que o transporte é realizado por nossa conta: nós mesmos levamos, montamos e retiramos os equipamentos no local do seu evento.</p>
+            </div>
+            <div class="faq-item reveal">
+                <h4><i class="far fa-clock"></i> Qual é o tempo de duração da locação?</h4>
+                <p>O período padrão estabelecido de funcionamento contínuo da pista durante a festa é de <strong>4 (quatro) horas</strong>, contudo esse tempo é flexível e pode ser totalmente ajustado de acordo com o cronograma e as necessidades do seu evento.</p>
+            </div>
+            <div class="faq-item reveal">
+                <h4><i class="fas fa-tools"></i> A montagem está inclusa no valor?</h4>
+                <p>Sim! Toda a <strong>montagem técnica especializada e a desmontagem</strong> da pista de vidro são feitas exclusivamente pela nossa equipe profissional, garantindo total segurança e nivelamento perfeito para os seus convidados dançarem sem riscos.</p>
+            </div>
+            <div class="faq-item reveal">
+                <h4><i class="fas fa-bolt"></i> Quais são os requisitos técnicos necessários?</h4>
+                <p>Para a instalação, necessitamos apenas que o local destinado à pista ofereça um <strong>piso firme e nivelado</strong>, além de uma <strong>tomada simples de 220V</strong> posicionada de maneira próxima para alimentar os efeitos do sistema de LEDs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO PARCERIAS -->
+    <section id="parcerias" class="parcerias section-padding">
+        <div class="parcerias-card reveal">
+            <div class="parcerias-content-wrapper">
+                <h2>Parceria Mútua de Sucesso</h2>
+                <div class="parcerias-text">
+                    <p>Unimos forças com os melhores profissionais do mercado! Através do nosso sistema de indicação mútua, nós recomendamos os serviços de parceiros de confiança (como cerimonialistas, buffets, decoradores e DJs) diretamente para os nossos clientes finais.</p>
+                    <p>Em contrapartida, garantimos condições comerciais muito especiais, tabelas de preços diferenciadas e bonificações exclusivas para os profissionais que nos indicam. Para alinhar os detalhes operacionais e receber o nosso material de apresentação, clique no botão logo abaixo.</p>
+                </div>
+                <a href="https://wa.me/5519999223107?text=Olá Carlos! Gostaria de saber mais sobre como funciona o sistema de indicação mútua e as condições especiais para parceiros." target="_blank" class="btn">Seja Nosso Parceiro</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ELJ Locações — todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript externo dentro da pasta assets/js -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Dancing+Script:wght@400..700&family=Satisfy&display=swap');
+
+/* --- VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS --- */
+:root {
+    --ouro: #D4AF37;
+    --preto: #050505;
+    --branco: #ffffff;
+    --prata: #e0e0e0;
+    --whatsapp: #25d366;
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-corpo: 'Poppins', sans-serif;
+    --fonte-manuscrita: 'Allison', cursive;
+    --header-height: 100px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+    font-family: var(--fonte-corpo);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: var(--header-height); 
+}
+
+/* --- ANIMAÇÕES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes shine {
+    0% { text-shadow: 0 0 5px rgba(255,255,255,0.1), 0 0 10px rgba(192,192,192,0.1); }
+    50% { text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 15px rgba(192,192,192,0.4); }
+    100% { text-shadow: 0 0 5px rgba(255,255,255,0.1), 0 0 10px rgba(192,192,192,0.1); }
+}
+
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Nova animação contínua de pulso e brilho para o Instagram (perfeita para celular) */
+@keyframes pulse-instagram {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(220, 39, 67, 0.3); }
+    50% { transform: scale(1.04); box-shadow: 0 0 25px rgba(220, 39, 67, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(220, 39, 67, 0.3); }
+}
+
+/* --- WHATSAPP FLOATING BUTTON --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    animation: pulse-whatsapp 2.5s infinite;
+    transition: background-color 0.3s ease;
+}
+
+/* --- HEADER --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 5, 5, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ouro);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: var(--ouro);
+    transition: 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(5, 5, 5, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    z-index: 999;
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav-overlay.open { right: 0; }
+.nav-overlay ul { list-style: none; text-align: center; }
+.nav-overlay ul li { margin: 25px 0; }
+.nav-overlay ul li a { text-decoration: none; color: var(--branco); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 3px; transition: 0.3s; font-weight: 600; }
+.nav-overlay ul li a:hover { color: var(--ouro); }
+
+/* --- CAROUSEL HERO --- */
+.hero-slider {
+    position: relative;
+    height: calc(100vh - var(--header-height)); 
+    width: 100%;
+    overflow: hidden;
+    background: var(--preto);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.1), rgba(5,5,5,0.85));
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+    padding: 40px 20px 20px 20px; /* Adicionado padding top para proteger do cabeçalho */
+    transform: translateY(15px); /* Efeito suave começando um pouco abaixo */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide.active .hero-content {
+    opacity: 1;
+    transform: translateY(0); /* Para no centro perfeito sem subir demais */
+}
+
+.pre-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--prata);
+    display: block;
+    margin-bottom: 15px; /* Aumentado espaçamento inferior do pré-título */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero h1 {
+    font-family: var(--fonte-manuscrita);
+    font-weight: 400;
+    font-size: clamp(4rem, 12vw, 10.2rem); 
+    line-height: 0.9;
+    margin-bottom: 20px;
+    animation: shine 6s ease-in-out infinite;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    margin-bottom: 35px;
+    color: var(--prata);
+    letter-spacing: 1px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- CONTROLES DO SLIDER --- */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: 0.4s;
+    border: 1px solid var(--ouro);
+}
+
+.dot.active {
+    background: var(--ouro);
+    width: 30px;
+    border-radius: 10px;
+}
+
+/* --- SEÇÕES --- */
+.section-padding { padding: 100px 10%; }
+.about-pista { background: #0a0a0a; }
+.about-content { display: flex; flex-direction: column; gap: 50px; max-width: 1100px; margin: 0 auto; text-align: center; }
+.about-text h2 { font-family: var(--fonte-titulo); font-size: 1.3rem; color: var(--branco); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px; }
+.titulo-pista-decorado { font-family: var(--fonte-manuscrita); font-size: 6rem; line-height: 0.8; color: var(--branco); margin-bottom: 40px; animation: shine 6s ease-in-out infinite; display: block; }
+.about-text p { font-size: 1.15rem; color: var(--prata); margin-bottom: 30px; max-width: 850px; margin-left: auto; margin-right: auto; }
+.specs-box { border: 1px solid var(--ouro); padding: 25px 40px; border-radius: 12px; display: inline-block; margin: 30px 0; background: rgba(212, 175, 55, 0.05); font-size: 1.1rem; }
+
+.media-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; align-items: start; }
+.media-item { width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid rgba(212, 175, 55, 0.3); overflow: hidden; transition: transform 0.4s ease, border-color 0.4s ease; background: #111; }
+.media-item:hover { transform: scale(1.03); border-color: var(--ouro); }
+.media-item img, .media-item video { width: 100%; height: auto; display: block; object-fit: cover; }
+
+/* --- BOTÕES --- */
+.btn {
+    padding: 16px 45px;
+    background-color: transparent; 
+    color: var(--ouro); 
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: 2px solid var(--ouro); 
+    border-radius: 6px; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background-color: var(--ouro);
+    color: var(--preto);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* --- BOTÃO DO INSTAGRAM (CONHEÇA A PISTA) --- */
+.instagram-container {
+    grid-column: 1 / -1; /* Faz o botão ocupar o centro do grid de fotos */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-instagram {
+    /* Gradiente muito suave no fundo já de início para dar cor no celular */
+    background: linear-gradient(45deg, rgba(240, 148, 51, 0.15) 0%, rgba(220, 39, 67, 0.15) 50%, rgba(188, 24, 136, 0.15) 100%);
+    border-color: #dc2743; /* Borda rosa/vermelha do Instagram */
+    color: var(--branco);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    /* Animação contínua e suave de pulso que roda direto no celular */
+    animation: pulse-instagram 3s infinite ease-in-out;
+}
+
+/* Efeito degrade completo ao passar o mouse ou dar foco no computador */
+.btn-instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    color: var(--branco);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(220, 39, 67, 0.6);
+}
+
+/* --- VANTAGENS --- */
+.titulo-seccao { font-family: var(--fonte-titulo); font-size: 2.8rem; text-align: center; margin-bottom: 60px; color: var(--ouro); letter-spacing: 2px; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+.feature-card { background: rgba(255, 255, 255, 0.02); padding: 50px 35px; border-radius: 25px; text-align: center; border: 1px solid rgba(212, 175, 55, 0.1); transition: 0.4s; display: flex; flex-direction: column; align-items: center; }
+.feature-card:hover { border-color: var(--ouro); background: rgba(212, 175, 55, 0.06); transform: translateY(-10px); }
+.feature-card i { font-size: 3rem; color: var(--ouro); margin-bottom: 30px; }
+.feature-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+.feature-card ul { list-style: none; padding: 0; text-align: left; margin-top: 25px; width: 100%; }
+.feature-card ul li { font-size: 0.9rem; color: var(--prata); margin-bottom: 10px; padding: 8px 12px; background: rgba(212, 175, 55, 0.05); border-radius: 8px; border-left: 3px solid var(--ouro); display: flex; align-items: center; gap: 12px; }
+
+/* --- FAQ --- */
+.faq-container { max-width: 900px; margin: 0 auto; }
+.faq-item { margin-bottom: 45px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.faq-item h4 { color: var(--ouro); margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 15px; letter-spacing: 1px; }
+
+/* --- PARCERIAS --- */
+.parcerias { background: var(--preto); padding-top: 40px; padding-bottom: 100px; }
+.parcerias-card { max-width: 950px; margin: 0 auto; padding: 80px 40px; background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 30px; text-align: center; box-shadow: 0 15px 50px rgba(0,0,0,0.6); position: relative; overflow: hidden; }
+.parcerias-content-wrapper { position: relative; z-index: 2; }
+.parcerias-card h2 { font-family: var(--fonte-titulo); font-size: 2.2rem; margin-bottom: 30px; color: var(--ouro); text-transform: uppercase; letter-spacing: 4px; }
+.parcerias-text { font-size: 1.15rem; color: var(--branco); line-height: 1.8; margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto; }
+.parcerias-text strong { color: var(--ouro); font-weight: 600; }
+
+/* --- FOOTER --- */
+footer { padding: 50px 20px; text-align: center; background: #000; border-top: 1px solid rgba(212, 175, 55, 0.1); color: #666; font-size: 0.9rem; letter-spacing: 1px; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    header { padding: 0 4%; }
+    .section-padding { padding: 80px 5%; }
+}
+
+@media (max-width: 768px) {
+    :root { --header-height: 80px; }
+    header { padding: 0 20px; height: 80px; }
+    .media-container { grid-template-columns: 1fr; }
+    .titulo-pista-decorado { font-size: 4.5rem; }
+    .hero h1 { font-size: 4.5rem; }
+    .slide.active .hero-content { transform: translateY(0); } /* Ajustado para parar de forma estável no celular */
+    .parcerias-card { padding: 60px 20px; border-radius: 20px; }
+    .parcerias-card h2 { font-size: 1.7rem; }
+    .parcerias { padding-top: 20px; }
+}
