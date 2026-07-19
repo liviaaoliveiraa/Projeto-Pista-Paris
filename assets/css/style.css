@@ -99,13 +99,37 @@ header {
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
+/* --- CONFIGURAÇÃO DA LOGO E ALINHAMENTO --- */
 .logo {
-    font-family: var(--fonte-titulo);
+    display: flex;             /* Coloca a torre e o texto lado a lado */
+    align-items: center;       /* Alinha os centros verticalmente */
+    gap: 15px;                 /* Distância perfeita entre a imagem e o texto */
+    cursor: pointer;
+    height: 100%;              /* Ocupa a altura interna sem esticar a header */
+}
+
+.logo-icon {
+    height: 65px;              /* Altura ideal: um pouco maior que o texto, segura para a header de 100px */
+    width: auto;               /* Mantém a proporção correta da torre */
+    display: block;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    /* REMOVIDO: filter: invert(1); para manter a sua torre original branca aparecendo no fundo escuro */
+}
+
+.logo-text {
+    font-family: var(--fonte-titulo) !important; /* Força o uso da sua fonte Playfair Display original */
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--ouro);
     text-transform: uppercase;
     letter-spacing: 4px;
+    display: inline-block;
+}
+
+/* Efeito sutil ao passar o mouse */
+.logo:hover .logo-icon {
+    transform: scale(1.08) rotate(-3deg);
 }
 
 .menu-toggle {
@@ -226,6 +250,15 @@ header {
     margin-bottom: 20px;
     animation: shine 6s ease-in-out infinite;
     letter-spacing: 2px;
+}
+
+.hero h1 span {
+    font-family: var(--fonte-corpo);
+    font-weight: 600;
+    font-size: 0.5em;
+    display: block;
+    letter-spacing: 15px;
+    margin-top: -10px;
 }
 
 .hero p {
@@ -373,4 +406,8 @@ footer { padding: 50px 20px; text-align: center; background: #000; border-top: 1
     .parcerias-card { padding: 60px 20px; border-radius: 20px; }
     .parcerias-card h2 { font-size: 1.7rem; }
     .parcerias { padding-top: 20px; }
+    
+    /* Ajuste da logo no celular para não quebrar */
+    .logo-icon { height: 45px; }
+    .logo-text { font-size: 1.2rem; letter-spacing: 2px; }
 }
